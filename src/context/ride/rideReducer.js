@@ -1,50 +1,48 @@
 import {
-	GET_CONTACTS,
-	ADD_CONTACT,
-	DELETE_CONTACT,
+	GET_RIDES,
+	ADD_RIDE,
+	DELETE_RIDE,
 	SET_CURRENT,
 	CLEAR_CURRENT,
-	UPDATE_CONTACT,
-	FILTER_CONTACTS,
-	CLEAR_CONTACTS,
+	UPDATE_RIDE,
+	FILTER_RIDES,
+	CLEAR_RIDES,
 	CLEAR_FILTER,
-	CONTACT_ERROR,
+	RIDE_ERROR,
 } from '../types'
 
 export default (state, action) => {
 	switch (action.type) {
-		case GET_CONTACTS:
+		case GET_RIDES:
 			return {
 				...state,
-				contacts: action.payload,
+				rides: action.payload,
 				loading: false,
 			}
-		case ADD_CONTACT:
+		case ADD_RIDE:
 			return {
 				...state,
-				contacts: [action.payload, ...state.contacts],
+				rides: [action.payload, ...state.rides],
 				loading: false,
 			}
-		case UPDATE_CONTACT:
+		case UPDATE_RIDE:
 			return {
 				...state,
-				contacts: state.contacts.map(contact =>
-					contact._id === action.payload._id ? action.payload : contact
+				rides: state.rides.map(ride =>
+					ride._id === action.payload._id ? action.payload : ride
 				),
 				loading: false,
 			}
-		case DELETE_CONTACT:
+		case DELETE_RIDE:
 			return {
 				...state,
-				contacts: state.contacts.filter(
-					contact => contact._id !== action.payload
-				),
+				rides: state.rides.filter(ride => ride._id !== action.payload),
 				loading: false,
 			}
-		case CLEAR_CONTACTS:
+		case CLEAR_RIDES:
 			return {
 				...state,
-				contacts: null,
+				rides: null,
 				filtered: null,
 				error: null,
 				current: null,
@@ -59,12 +57,12 @@ export default (state, action) => {
 				...state,
 				current: null,
 			}
-		case FILTER_CONTACTS:
+		case FILTER_RIDES:
 			return {
 				...state,
-				filtered: state.contacts.filter(contact => {
+				filtered: state.rides.filter(ride => {
 					const regex = new RegExp(`${action.payload}`, 'gi')
-					return contact.name.match(regex) || contact.email.match(regex)
+					return ride.name.match(regex) || ride.email.match(regex)
 				}),
 			}
 		case CLEAR_FILTER:
@@ -72,7 +70,7 @@ export default (state, action) => {
 				...state,
 				filtered: null,
 			}
-		case CONTACT_ERROR:
+		case RIDE_ERROR:
 			return {
 				...state,
 				error: action.payload,

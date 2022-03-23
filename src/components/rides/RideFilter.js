@@ -1,11 +1,11 @@
 import React, { useEffect, useContext, useRef } from 'react'
-import ContactContext from './../../context/contact/contactContext'
+import RideContext from './../../context/ride/rideContext'
 
-const ContactFilter = () => {
-	const contactContext = useContext(ContactContext)
+const RideFilter = () => {
+	const rideContext = useContext(RideContext)
 	const text = useRef()
 
-	const { filterContacts, clearFilter, filtered } = contactContext
+	const { filterRides, clearFilter, filtered } = rideContext
 
 	useEffect(() => {
 		if (filtered === null) {
@@ -15,7 +15,7 @@ const ContactFilter = () => {
 
 	const onChange = e => {
 		if (text.current.value !== '') {
-			filterContacts(e.target.value)
+			filterRides(e.target.value)
 		} else {
 			clearFilter()
 		}
@@ -26,11 +26,11 @@ const ContactFilter = () => {
 			<input
 				ref={text}
 				type="text"
-				placeholder="Filter Contacts..."
+				placeholder="Filter Rides..."
 				onChange={onChange}
 			/>
 		</form>
 	)
 }
 
-export default ContactFilter
+export default RideFilter

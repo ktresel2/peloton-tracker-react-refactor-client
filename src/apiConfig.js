@@ -1,6 +1,6 @@
 let apiUrl
 const apiUrls = {
-	production: 'https://contactkeeper223-backend.herokuapp.com',
+	production: 'https://peloton-tracker-backend.herokuapp.com',
 	development: 'http://localhost:5000',
 }
 

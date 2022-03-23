@@ -2,18 +2,18 @@ import React, { Fragment, useContext } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import AuthContext from './../../context/auth/authContext'
-import ContactContext from './../../context/contact/contactContext'
+import RideContext from './../../context/ride/rideContext'
 
 const Navbar = ({ title, icon }) => {
 	const authContext = useContext(AuthContext)
-	const contactContext = useContext(ContactContext)
+	const rideContext = useContext(RideContext)
 
 	const { user, isAuthenticated, logout } = authContext
-	const { clearContacts } = contactContext
+	const { clearRides } = rideContext
 
 	const onLogout = () => {
 		logout()
-		clearContacts()
+		clearRides()
 	}
 	const authLinks = (
 		<Fragment>
@@ -55,7 +55,7 @@ Navbar.propTypes = {
 }
 
 Navbar.defaultProps = {
-	title: 'Contact Keeper',
+	title: 'Peloton Tracker',
 	icon: 'fas fa-id-card-alt',
 }
 
