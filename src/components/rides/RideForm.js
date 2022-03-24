@@ -15,6 +15,7 @@ const RideForm = () => {
 				duration: '',
 				output: '',
 				mileage: '',
+				date: '',
 			})
 		}
 	}, [rideContext, current])
@@ -24,9 +25,10 @@ const RideForm = () => {
 		duration: '',
 		output: '',
 		mileage: '',
+		date: '',
 	})
 
-	const { instructor, duration, output, mileage } = ride
+	const { instructor, duration, output, mileage, date } = ride
 
 	const onChange = e => setRide({ ...ride, [e.target.name]: e.target.value })
 
@@ -75,6 +77,7 @@ const RideForm = () => {
 				value={mileage}
 				onChange={onChange}
 			/>
+			<input type="date" name="date" value={date} onChange={onChange} />
 			<div>
 				<input
 					type="submit"

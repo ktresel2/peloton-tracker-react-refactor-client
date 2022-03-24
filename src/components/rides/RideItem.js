@@ -29,6 +29,18 @@ const RideItem = ({ ride }) => {
 						{output}
 					</li>
 				)}
+				{mileage && (
+					<li>
+						{/* <i className="fas fa-output"></i> */}
+						{mileage}
+					</li>
+				)}
+				{date && (
+					<li>
+						{/* <i className="fas fa-output"></i> */}
+						{date}
+					</li>
+				)}
 			</ul>
 			<p>
 				<button
