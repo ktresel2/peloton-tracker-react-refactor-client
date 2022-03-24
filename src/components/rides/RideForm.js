@@ -63,12 +63,18 @@ const RideForm = () => {
 			/>
 			<input
 				type="number"
-				placeholder="output"
+				placeholder="Output"
 				name="output"
 				value={output}
 				onChange={onChange}
 			/>
-			<input type="number" name="mileage" value={mileage} onChange={onChange} />
+			<input
+				type="number"
+				name="mileage"
+				placeholder="Mileage"
+				value={mileage}
+				onChange={onChange}
+			/>
 			<div>
 				<input
 					type="submit"

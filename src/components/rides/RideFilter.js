@@ -26,7 +26,7 @@ const RideFilter = () => {
 			<input
 				ref={text}
 				type="text"
-				placeholder="Filter Rides..."
+				placeholder="Filter Rides by Instructor..."
 				onChange={onChange}
 			/>
 		</form>
